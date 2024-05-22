@@ -2,11 +2,11 @@
 
 .home{
     width: 100%;
-    min-height: 89vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 .home img{
@@ -45,4 +45,25 @@
 
 .btn_red:hover{
     background-color: var(--primary);
+}
+
+
+@media (max-width: 768px) {
+    .home{
+        flex-direction: column;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .home p{
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .home img{
+        max-width: 100%;
+        height: auto;
+        padding-inline: 1em;
+    }
 }

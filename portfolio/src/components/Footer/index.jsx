@@ -3,7 +3,7 @@ import styles from './Footer.module.css'
 function Footer(){
     return(
         <footer className={styles.footer}>
-            Feito com por Deividson &copy; 2024
+            Feito por Deividson &copy; 2024
         </footer>
     )
 }
