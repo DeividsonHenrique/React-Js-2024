@@ -1,42 +1,53 @@
 import './App.css'
+import TournamentBracket from './components/TournamentBracket'
+import { useState } from 'react'
+import TabButton from './components/TabButton'
 import Card from './components/Card'
-import GameTable from './components/GameTable'
-import GroupStanding from './components/GroupStanding'
-import KnockoutStage from './components/KnockoutStage'
 
 function App() {
 
+  const [ activeTab, setActiveTab ] = useState('Finais')
+
+  function handleChangetab(tabName){
+    setActiveTab(tabName)
+  }
+
+  function renderTabContent(){
+    switch(activeTab){
+      case 'Finais':
+        return <TournamentBracket fase="finais" />
+      case 'Semifinais':
+        return <TournamentBracket fase="semifinais" />
+      case 'Quartas':
+        return <TournamentBracket fase="quartas" />
+      case 'Oitavas':
+        return <TournamentBracket fase="oitavas" />
+      case 'Grupos':
+        return <section className='cards'><Card /></section>
+    }
+  }
   return (
     <>
       <h1>Copa do Mundo Femenina 2023</h1>
-      <section className='cards'>
-        <Card />
+
+      <section className="knockout_table">
+        
+    <div className='tabs'>
+      <TabButton tabName="Finais" activeTab={activeTab} handleChangetab={handleChangetab} />
+
+      <TabButton tabName="Semifinais" activeTab={activeTab} handleChangetab={handleChangetab} />
+
+      <TabButton tabName="Quartas" activeTab={activeTab} handleChangetab={handleChangetab} />
+
+      <TabButton tabName="Oitavas" activeTab={activeTab} handleChangetab={handleChangetab} />
+
+      <TabButton tabName="Grupos" activeTab={activeTab} handleChangetab={handleChangetab} />
+    </div>
+
+      <div className='tab_content'>
+        {renderTabContent()}
+      </div>
       </section>
-
-      <h2>Tabela de Jogos</h2>
-
-      <section className='game_table'>
-        <GameTable />
-      </section>
-
-      <h2>Classificação por Grupo</h2>
-
-      <section className='group_table'>
-        <GroupStanding />
-      </section>
-
-      <h2>Oitvas de Final</h2>
-
-      <section className='knockout_table'>
-        <KnockoutStage fase="oitavas" />
-      </section>
-
-      <h2>Quartas de Final</h2>
-
-      <section className='knockout_table'>
-        <KnockoutStage fase="quartas" />
-      </section>
-
     </>
   )
 }
