@@ -18,11 +18,13 @@ function GameTable () {
         <table className={styles.table}>
 
             <thead>
-                <th>Dia</th>
-                <th>Data</th>
-                <th>Hora</th>
-                <th>Grupo</th>
-                <th colSpan={5}>Jogo</th>
+                <tr>
+                    <th>Dia</th>
+                    <th>Data</th>
+                    <th>Hora</th>
+                    <th>Grupo</th>
+                    <th colSpan={5}>Jogo</th>
+                </tr>
             </thead>
 
             <tbody>
