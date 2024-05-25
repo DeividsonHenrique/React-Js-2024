@@ -31,6 +31,12 @@ function App() {
         <KnockoutStage fase="oitavas" />
       </section>
 
+      <h2>Quartas de Final</h2>
+
+      <section className='knockout_table'>
+        <KnockoutStage fase="quartas" />
+      </section>
+
     </>
   )
 }
