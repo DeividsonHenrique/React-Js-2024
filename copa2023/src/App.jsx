@@ -15,13 +15,13 @@ function App() {
   function renderTabContent(){
     switch(activeTab){
       case 'Finais':
-        return <TournamentBracket fase="finais" />
+        return <TournamentBracket fase="finais"/>
       case 'Semifinais':
-        return <TournamentBracket fase="semifinais" />
+        return <TournamentBracket fase="semifinais"/>
       case 'Quartas':
-        return <TournamentBracket fase="quartas" />
+        return <TournamentBracket fase="quartas"/>
       case 'Oitavas':
-        return <TournamentBracket fase="oitavas" />
+        return <TournamentBracket fase="oitavas"/>
       case 'Grupos':
         return <section className='cards'><Card /></section>
     }
