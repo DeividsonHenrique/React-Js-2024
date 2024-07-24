@@ -30,7 +30,6 @@ function Contatos(){
                         <a href="https://www.linkedin.com/in/deividsonhenrique/" target="_blank" rel="noopener noreferrer">
                             <BsLinkedin className={styles.icone} />
                         </a>
-
                     </div>
                 </section>
         </>
