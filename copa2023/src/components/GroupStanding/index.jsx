@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import styles from "./GroupStanding.module.css";
+import { Table, Esquerda, DivSelect, Select } from "./style";
 
 function GroupStanding() {
   const [grupos, setGrupos] = useState([]);
@@ -18,8 +18,8 @@ function GroupStanding() {
 
   return (
     <>
-      <div className={styles.div_select}>
-        <select
+      <DivSelect>
+        <Select
           value={letraSelecionada}
           onChange={(e) => setletraSelecionada(e.target.value)}
         >
@@ -31,10 +31,10 @@ function GroupStanding() {
           <option value="F">Grupo F</option>
           <option value="G">Grupo G</option>
           <option value="H">Grupo H</option>
-        </select>
-      </div>
+        </Select>
+      </DivSelect>
 
-      <table className={styles.table}>
+      <Table>
         <thead>
           <tr>
             <th>#</th>
@@ -55,7 +55,7 @@ function GroupStanding() {
             .map((grupo) => (
               <tr key={grupo.selecao}>
                 <td>{grupo.posicao}</td>
-                <td className={styles.esquerda}>{grupo.selecao}</td>
+                <Esquerda>{grupo.selecao}</Esquerda>
                 <td>{grupo.pontos}</td>
                 <td>{grupo.vitorias}</td>
                 <td>{grupo.empates}</td>
@@ -66,7 +66,7 @@ function GroupStanding() {
               </tr>
             ))}
         </tbody>
-      </table>
+      </Table>
     </>
   );
 }

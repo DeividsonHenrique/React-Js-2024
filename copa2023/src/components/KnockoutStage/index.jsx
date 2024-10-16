@@ -1,5 +1,17 @@
-import styles from "./KnockoutStage.module.css";
 import { useEffect, useState } from "react";
+import {
+  Jogo,
+  Titulo2,
+  Date,
+  Day,
+  Hour,
+  Placar,
+  MandanteBox,
+  VisitanteBox,
+  PlacarBox,
+  Gols,
+  Centralizar,
+} from "./style";
 
 // eslint-disable-next-line react/prop-types
 function KnockoutStage({ fase }) {
@@ -17,44 +29,44 @@ function KnockoutStage({ fase }) {
   }, [url]);
 
   return (
-    <section className={styles.jogos}>
+    <section>
       {jogos.map((jogo) => (
-        <div key={jogo.jogo} className={styles.jogo}>
-          <h2 className={styles.titulo2}>
+        <Jogo key={jogo.jogo}>
+          <Titulo2>
             {jogo.tipo == "decisão" ? jogo.fase : fase} {jogo.jogo} - chave{" "}
             {jogo.chave}
-          </h2>
+          </Titulo2>
           <h3>
-            <span className={styles.dia}>{jogo.dia}</span>
-            <span className={styles.data}>{jogo.data}</span>
-            <span className={styles.hora}>{jogo.hora}</span>
+            <Day>{jogo.dia}</Day>
+            <Date>{jogo.data}</Date>
+            <Hour>{jogo.hora}</Hour>
           </h3>
 
-          <h3 className={styles.placar}>
-            <div className={styles.mandante_box}>
+          <Placar>
+            <MandanteBox>
               {jogo.mandante}
               <img
                 src={`/bandeiras/${jogo.sigla_mandante.toLowerCase()}.png`}
                 alt={jogo.mandante}
               />
-            </div>
+            </MandanteBox>
 
-            <div className={styles.placar_box}>
-              <span className={styles.gols}>{jogo.gols_mandante}</span>X
-              <span className={styles.gols}>{jogo.gols_visitante}</span>
-            </div>
+            <PlacarBox>
+              <Gols>{jogo.gols_mandante}</Gols>X
+              <Gols>{jogo.gols_visitante}</Gols>
+            </PlacarBox>
 
-            <div className={styles.visitante_box}>
+            <VisitanteBox>
               <img
                 src={`/bandeiras/${jogo.sigla_visitante.toLowerCase()}.png`}
                 alt={jogo.visitante}
               />
               {jogo.visitante}
-            </div>
-          </h3>
-          <div className={styles.tempo_extra}>
+            </VisitanteBox>
+          </Placar>
+          <div>
             {jogo.prorrogacao == "Sim" && (
-              <div className={styles.centralizar}>
+              <Centralizar>
                 <span>
                   Prorrogação? {jogo.prorrogacao} | Placar Prorrogação:{" "}
                   {jogo.placar_prorrogacao}
@@ -63,11 +75,11 @@ function KnockoutStage({ fase }) {
                   Pênaltis? {jogo.penaltis} | Placar Pênaltis:{" "}
                   {jogo.placar_penaltis}
                 </span>
-              </div>
+              </Centralizar>
             )}
           </div>
           <h4>Vencedor: {jogo.vencedor}</h4>
-        </div>
+        </Jogo>
       ))}
     </section>
   );

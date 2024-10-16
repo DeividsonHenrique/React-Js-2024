@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import styles from "./Card.module.css";
+import { Cards, Row } from "./style";
 
 function Card() {
   const [grupos, setGrupos] = useState([]);
@@ -17,11 +17,8 @@ function Card() {
   }, []);
 
   return grupos.map((grupo) => (
-    <section className={styles.card} key={grupo.grupo}>
-      <div
-        className={styles.linha}
-        style={{ backgroundColor: grupo.cor }}
-      ></div>
+    <Cards key={grupo.grupo}>
+      <Row style={{ backgroundColor: grupo.cor }}></Row>
       <h2>Grupo {grupo.grupo}</h2>
       <ul>
         {grupo.selecoes.map((pais) => {
@@ -33,7 +30,7 @@ function Card() {
           );
         })}
       </ul>
-    </section>
+    </Cards>
   ));
 }
 

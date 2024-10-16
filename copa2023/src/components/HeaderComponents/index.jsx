@@ -1,12 +1,16 @@
-/* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
-import styles from "./HeaderComponents.module.css";
+import styled from "styled-components";
+
+const Titulo2 = styled.h2`
+  font-size: 1rem;
+  font-weight: 400;
+`;
 
 function HeaderComponents({ jogo }) {
   return (
-    <h2 className={styles.titulo2}>
+    <Titulo2>
       {jogo.fase} {jogo.jogo} - chave {jogo.chave}
-    </h2>
+    </Titulo2>
   );
 }
 

@@ -1,5 +1,5 @@
-import styles from "./GameTable.module.css";
 import { useEffect, useState } from "react";
+import { Table, Esquerda, Direita, Gols } from "./style";
 
 function GameTable() {
   const [jogos, setJogos] = useState([]);
@@ -16,7 +16,7 @@ function GameTable() {
   }, []);
 
   return (
-    <table className={styles.table}>
+    <Table>
       <thead>
         <tr>
           <th>Dia</th>
@@ -35,30 +35,30 @@ function GameTable() {
             <td>{jogo.hora}</td>
             <td>{jogo.grupo}</td>
             <td>
-              <span className={styles.direita}>
+              <Direita>
                 {jogo.mandante}
                 <img
                   src={`/bandeiras/${jogo.sigla_mandante.toLowerCase()}.png`}
                   alt={jogo.mandante}
                 />
-              </span>
+              </Direita>
             </td>
-            <td className={styles.gols}>{jogo.gols_mandante}</td>
+            <Gols>{jogo.gols_mandante}</Gols>
             <td>X</td>
-            <td className={styles.gols}>{jogo.gols_visitante}</td>
+            <Gols>{jogo.gols_visitante}</Gols>
             <td>
-              <span className={styles.esquerda}>
+              <Esquerda>
                 <img
                   src={`/bandeiras/${jogo.sigla_visitante.toLowerCase()}.png`}
                   alt={jogo.visitante}
                 />
                 {jogo.visitante}
-              </span>
+              </Esquerda>
             </td>
           </tr>
         ))}
       </tbody>
-    </table>
+    </Table>
   );
 }
 

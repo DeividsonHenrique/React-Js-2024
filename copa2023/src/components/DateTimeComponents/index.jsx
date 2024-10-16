@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
-import styles from "./DateTimeComponents.module.css";
+import { Date, Day, Hour } from "./style";
 
 function DateTimeComponents({ jogo }) {
   return (
     <h3>
-      <span className={styles.dia}>{jogo.dia}</span>
-      <span className={styles.data}>{jogo.data}</span>
-      <span className={styles.hora}>{jogo.hora}</span>
+      <Day>{jogo.dia}</Day>
+      <Date>{jogo.data}</Date>
+      <Hour>{jogo.hora}</Hour>
     </h3>
   );
 }

@@ -1,30 +1,29 @@
 /* eslint-disable react/prop-types */
-import styles from "./ScoreComponent.module.css";
+import { Placar, MandanteBox, VisitanteBox, PlacarBox, Gols } from "./style";
 
 function ScoreComponent({ jogo }) {
   return (
-    <h3 className={styles.placar}>
-      <div className={styles.mandante_box}>
+    <Placar>
+      <MandanteBox>
         {jogo.mandante}
         <img
           src={`/bandeiras/${jogo.sigla_mandante.toLowerCase()}.png`}
           alt={jogo.mandante}
         />
-      </div>
+      </MandanteBox>
 
-      <div className={styles.placar_box}>
-        <span className={styles.gols}>{jogo.gols_mandante}</span>X
-        <span className={styles.gols}>{jogo.gols_visitante}</span>
-      </div>
+      <PlacarBox>
+        <Gols>{jogo.gols_mandante}</Gols>X<Gols>{jogo.gols_visitante}</Gols>
+      </PlacarBox>
 
-      <div className={styles.visitante_box}>
+      <VisitanteBox>
         <img
           src={`/bandeiras/${jogo.sigla_visitante.toLowerCase()}.png`}
           alt={jogo.visitante}
         />
         {jogo.visitante}
-      </div>
-    </h3>
+      </VisitanteBox>
+    </Placar>
   );
 }
 

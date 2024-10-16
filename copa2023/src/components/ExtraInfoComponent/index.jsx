@@ -1,9 +1,16 @@
 /* eslint-disable react/prop-types */
-import styles from "./ExtraInfoComponent.module.css";
+import styled from "styled-components";
+
+const Centralizar = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
 
 function ExtraInfoComponent({ jogo }) {
   return (
-    <div className={styles.centralizar}>
+    <Centralizar>
       {jogo.prorrogacao === "Sim" && (
         <div>
           Prorrogação? {jogo.prorrogacao} | Placar {jogo.placar_prorrogacao}
@@ -14,7 +21,7 @@ function ExtraInfoComponent({ jogo }) {
           Pênaltis? {jogo.penaltis} | Placar {jogo.placar_penaltis}
         </div>
       )}
-    </div>
+    </Centralizar>
   );
 }
 
