@@ -1,37 +1,30 @@
-import { Link } from 'react-router-dom'
-import styles from './Header.module.css'
-import { useState } from 'react'
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import { HeaderContainer, MenuButton, Linha, MenuSandwich } from "./style.js";
 
-function Header(){
+function Header() {
+  const [showMenu, setShowMenu] = useState(false);
+  const toggleMenu = () => setShowMenu(!showMenu);
 
-    const [showMenu, setShowMenu] = useState(false) 
-    const toggleMenu = () => setShowMenu(!showMenu)
+  return (
+    <HeaderContainer>
+      <Link to="/">
+        <span>Deividson.Dev</span>
+      </Link>
+      <MenuSandwich showMenu={showMenu} onClick={toggleMenu}>
+        <Link to="/">Home</Link>
+        <Link to="/sobre">Sobre</Link>
+        <Link to="/projetos">Projetos</Link>
+        <Link to="/contatos">Contatos</Link>
+      </MenuSandwich>
 
-    return(
-        <header className={styles.header}>
-            <Link to="/">
-                <span>Deividson.Dev</span>
-            </Link>
-            <nav
-             className={`${styles.menuSandwich} 
-                        ${showMenu ? styles.show : ''}`}
-                        onClick={toggleMenu} >
-                <Link to="/">Home</Link>
-                <Link to="/sobre">Sobre</Link>
-                <Link to="/projetos">Projetos</Link>
-                <Link to="/contatos">Contatos</Link>
-            </nav>
-
-            <div 
-                onClick={toggleMenu} 
-                className={styles.menuButton}
-                >
-                <span className={styles.linha}></span>
-                <span className={styles.linha}></span>
-                <span className={styles.linha}></span>
-            </div>
-        </header>
-    )
+      <MenuButton onClick={toggleMenu}>
+        <Linha></Linha>
+        <Linha></Linha>
+        <Linha></Linha>
+      </MenuButton>
+    </HeaderContainer>
+  );
 }
 
-export default Header
+export default Header;

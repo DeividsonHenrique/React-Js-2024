@@ -1,20 +1,21 @@
-import { Link } from 'react-router-dom'
-import styles from './Home.module.css'
+import { HomeContainer, Btn } from "./style";
 
-function Home(){
-    return(
-        <>
-      <section className={styles.home}>
-        <div className={styles.apresentacao}>
-          <p>Olá, sou <br/> <span>Deividson</span> <br/> Dev Front End</p>
-          <Link to="/sobre" className={`${styles.btn} ${styles.btn_red}`}>Saiba mais sobre mim</Link>
+function Home() {
+  return (
+    <>
+      <HomeContainer>
+        <div>
+          <p>
+            Olá, sou <br /> <span>Deividson</span> <br /> Dev Front End
+          </p>
+          <Btn to="/sobre">Saiba mais sobre mim</Btn>
         </div>
         <figure>
-          <img className={styles.img_home} src='/developer-red.svg' alt='Imagem de Home' />
+          <img src="/developer-red.svg" alt="Imagem de Home" />
         </figure>
-      </section>
+      </HomeContainer>
     </>
-    )
+  );
 }
 
-export default Home
+export default Home;

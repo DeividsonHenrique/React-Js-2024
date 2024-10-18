@@ -1,15 +1,21 @@
-import styles from './Page404.module.css'
+import {
+  Page404Container,
+  Titulo2,
+  Textos,
+  TextoGrande,
+  TextoVermelho,
+} from "./style";
 
-function Page404(){
-    return(
-        <section className={styles.page404}>
-                <h2 className={styles.titulo2}>Algo de errado aconteceu!</h2>
-                    <div className={styles.textos}>
-                        <span className={styles.texto_grande}>404 </span>
-                        <strong className={styles.texto_vermelho}>Página não encontrada!</strong>
-                    </div>
-        </section>
-    )
+function Page404() {
+  return (
+    <Page404Container>
+      <Titulo2>Algo de errado aconteceu!</Titulo2>
+      <Textos>
+        <TextoGrande>404 </TextoGrande>
+        <TextoVermelho>Página não encontrada!</TextoVermelho>
+      </Textos>
+    </Page404Container>
+  );
 }
 
-export default Page404
+export default Page404;
